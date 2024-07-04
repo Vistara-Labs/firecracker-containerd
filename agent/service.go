@@ -177,14 +177,6 @@ func (ts *TaskService) Create(requestCtx context.Context, req *taskAPI.CreateTas
 		}
 	}()
 
-	extraData, err := unmarshalExtraData(req.Options)
-	if err != nil {
-		return nil, fmt.Errorf("failed to unmarshal extra data: %w", err)
-	}
-
-	// Just provide runc the options it knows about, not our wrapper
-	req.Options = extraData.RuncOptions
-
 	bundleDir := bundle.Dir(req.Bundle)
 	ts.addCleanup(taskExecID, func() error {
 		err := os.RemoveAll(bundleDir.RootPath())
@@ -194,24 +186,29 @@ func (ts *TaskService) Create(requestCtx context.Context, req *taskAPI.CreateTas
 		return nil
 	})
 
-	isVMLocalRootFs := len(req.Rootfs) > 0 && vm.IsLocalMount(req.Rootfs[0])
+	if len(req.Rootfs) != 1 {
+		return nil, fmt.Errorf("got %d rootfs entries, expected 1", len(req.Rootfs))
+	}
 
 	// If the rootfs is inside the VM, then the DriveMount call didn't happen and therefore
 	// the bundledir was not created. Create it here.
-	if isVMLocalRootFs {
-		if err := os.MkdirAll(bundleDir.RootfsPath(), 0700); err != nil {
-			return nil, fmt.Errorf("Failed to create bundle's rootfs path from inside the vm %q: %w", bundleDir.RootfsPath(), err)
-		}
+	if err := os.MkdirAll(bundleDir.RootfsPath(), 0700); err != nil {
+		return nil, fmt.Errorf("Failed to create bundle's rootfs path from inside the vm %q: %w", bundleDir.RootfsPath(), err)
 	}
 
-	// check the rootfs dir has been created (presumed to be by a previous MountDrive call)
-	rootfsStat, err := os.Stat(bundleDir.RootfsPath())
-	if err != nil {
-		return nil, fmt.Errorf("failed to stat bundle's rootfs path %q: %w", bundleDir.RootfsPath(), err)
-	}
-	if !rootfsStat.IsDir() {
-		return nil, fmt.Errorf("bundle's rootfs path %q is not a dir", bundleDir.RootfsPath())
-	}
+	/*
+	   // Should be handled by runc internally
+
+	   rootfsMount := mount.Mount{
+	       Type: req.Rootfs[0].Type,
+	       Source: req.Rootfs[0].Source,
+	   }
+
+	   if err := rootfsMount.Mount(bundleDir.RootfsPath()); err != nil {
+	       return nil, fmt.Errorf("Failed to mount %s (%s) at %s: %w", rootfsMount.Source, rootfsMount.Type, bundleDir.RootfsPath(), err)
+	   }
+	*/
+
 	ts.addCleanup(taskExecID, func() error {
 		err := mount.UnmountAll(bundleDir.RootfsPath(), unix.MNT_DETACH)
 		if err != nil {
@@ -219,73 +216,8 @@ func (ts *TaskService) Create(requestCtx context.Context, req *taskAPI.CreateTas
 		}
 		return nil
 	})
-	specData := extraData.JsonSpec
 
-	// If the rootfs is inside the VM then:
-	// a) the rootfs mount type has a prefix that we used to identify this which needs to be stripped before passing to runc
-	// b) we were not able to inspect the container's rootfs from the client when setting up the spec. Do that here.
-	if isVMLocalRootFs {
-		req.Rootfs[0] = vm.StripLocalMountIdentifier(req.Rootfs[0])
-		rootfsMount := mount.Mount{
-			Type:    req.Rootfs[0].Type,
-			Source:  req.Rootfs[0].Source,
-			Options: req.Rootfs[0].Options,
-		}
-		specData, err = vm.UpdateUserInSpec(requestCtx, specData, rootfsMount)
-		if err != nil {
-			return nil, fmt.Errorf("failed to update spec: %w", err)
-		}
-	}
-	err = bundleDir.OCIConfig().Write(specData)
-	if err != nil {
-		return nil, fmt.Errorf("failed to write oci config file: %w", err)
-	}
-
-	var ioConnectorSet vm.IOProxy
-
-	if vm.IsAgentOnlyIO(req.Stdout, logger) {
-		ioConnectorSet = vm.NewNullIOProxy()
-	} else {
-		// Override the incoming stdio FIFOs, which have paths from the host that we can't use
-		fifoSet, err := cio.NewFIFOSetInDir(bundleDir.RootPath(), taskExecID, req.Terminal)
-		if err != nil {
-			err = fmt.Errorf("failed to open stdio FIFOs: %w", err)
-			logger.WithError(err).Error()
-			return nil, err
-		}
-		ts.addCleanup(taskExecID, func() error {
-			return fifoSet.Close()
-		})
-
-		var stdinConnectorPair *vm.IOConnectorPair
-		if req.Stdin != "" {
-			req.Stdin = fifoSet.Stdin
-			stdinConnectorPair = &vm.IOConnectorPair{
-				ReadConnector:  vm.VSockAcceptConnector(extraData.StdinPort),
-				WriteConnector: vm.WriteFIFOConnector(fifoSet.Stdin),
-			}
-		}
-
-		var stdoutConnectorPair *vm.IOConnectorPair
-		if req.Stdout != "" {
-			req.Stdout = fifoSet.Stdout
-			stdoutConnectorPair = &vm.IOConnectorPair{
-				ReadConnector:  vm.ReadFIFOConnector(fifoSet.Stdout),
-				WriteConnector: vm.VSockAcceptConnector(extraData.StdoutPort),
-			}
-		}
-
-		var stderrConnectorPair *vm.IOConnectorPair
-		if req.Stderr != "" {
-			req.Stderr = fifoSet.Stderr
-			stderrConnectorPair = &vm.IOConnectorPair{
-				ReadConnector:  vm.ReadFIFOConnector(fifoSet.Stderr),
-				WriteConnector: vm.VSockAcceptConnector(extraData.StderrPort),
-			}
-		}
-
-		ioConnectorSet = vm.NewIOConnectorProxy(stdinConnectorPair, stdoutConnectorPair, stderrConnectorPair)
-	}
+	ioConnectorSet := vm.NewNullIOProxy()
 
 	resp, err := ts.taskManager.CreateTask(requestCtx, req, ts.runcService, ioConnectorSet)
 	if err != nil {
