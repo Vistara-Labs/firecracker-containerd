@@ -17,10 +17,10 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"net"
 	"os"
 	"os/signal"
 	"syscall"
-	"net"
 
 	taskAPI "github.com/containerd/containerd/api/runtime/task/v2"
 	"github.com/containerd/containerd/events/exchange"
@@ -28,6 +28,7 @@ import (
 	"github.com/containerd/containerd/namespaces"
 	"github.com/containerd/containerd/sys/reaper"
 	"github.com/containerd/ttrpc"
+	"github.com/firecracker-microvm/firecracker-go-sdk/vsock"
 	"github.com/opencontainers/runc/libcontainer/system"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sync/errgroup"
@@ -119,8 +120,8 @@ func main() {
 
 	// Run ttrpc over vsock
 
-	// vsock.Listener(shimCtx, vsockLogger, uint32(port))
-	listener, err := net.ListenUnix("unix", &net.UnixAddr{Name: "/tmp/agent.sock", Net: "unix"})
+	vsockLogger := log.G(shimCtx).WithField("port", port)
+	listener, err := vsock.Listener(shimCtx, vsockLogger, uint32(port))
 	if err != nil {
 		log.G(shimCtx).WithError(err).Fatalf("failed to listen to vsock on port %d", port)
 	}
