@@ -22,9 +22,9 @@ import (
 
 	"github.com/containerd/containerd/log"
 	"github.com/containerd/containerd/protobuf/types"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	drivemount "github.com/firecracker-microvm/firecracker-containerd/proto/service/drivemount/ttrpc"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	drivemount "github.com/vistara-labs/firecracker-containerd/proto/service/drivemount/ttrpc"
 	firecracker "github.com/firecracker-microvm/firecracker-go-sdk"
 	ops "github.com/firecracker-microvm/firecracker-go-sdk/client/operations"
 	"github.com/firecracker-microvm/firecracker-go-sdk/fctesting"

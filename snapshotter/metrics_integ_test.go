@@ -24,10 +24,10 @@ import (
 
 	"github.com/containerd/containerd"
 	"github.com/containerd/containerd/namespaces"
-	"github.com/firecracker-microvm/firecracker-containerd/firecracker-control/client"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/integtest"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/internal/integtest/stargz/fs/source"
+	"github.com/vistara-labs/firecracker-containerd/firecracker-control/client"
+	"github.com/vistara-labs/firecracker-containerd/internal/integtest"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/internal/integtest/stargz/fs/source"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/sync/errgroup"
 )

@@ -31,10 +31,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/integtest"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	"github.com/firecracker-microvm/firecracker-containerd/runtime/firecrackeroci"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal/integtest"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/runtime/firecrackeroci"
 )
 
 func TestCNISupport_Isolated(t *testing.T) {

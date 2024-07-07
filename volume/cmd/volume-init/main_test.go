@@ -18,7 +18,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/firecracker-microvm/firecracker-containerd/volume"
+	"github.com/vistara-labs/firecracker-containerd/volume"
 	"github.com/stretchr/testify/require"
 )
 

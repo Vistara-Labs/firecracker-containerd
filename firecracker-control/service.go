@@ -22,8 +22,8 @@ import (
 	"github.com/containerd/containerd/protobuf/types"
 	"github.com/containerd/ttrpc"
 
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	fccontrol "github.com/firecracker-microvm/firecracker-containerd/proto/service/fccontrol/ttrpc"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	fccontrol "github.com/vistara-labs/firecracker-containerd/proto/service/fccontrol/ttrpc"
 )
 
 func init() {

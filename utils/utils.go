@@ -18,8 +18,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/proto"
 	"github.com/sirupsen/logrus"
 )
 

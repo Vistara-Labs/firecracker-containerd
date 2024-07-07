@@ -31,10 +31,10 @@ import (
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"
 
-	"github.com/firecracker-microvm/firecracker-containerd/config"
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/config"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/proto"
 	firecracker "github.com/firecracker-microvm/firecracker-go-sdk"
 )
 

@@ -25,8 +25,8 @@ import (
 	"github.com/containerd/fifo"
 	"golang.org/x/sys/unix"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/bundle"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal/bundle"
 )
 
 // ShimDir holds files, sockets and FIFOs scoped to a single shim managing the

@@ -25,7 +25,7 @@ import (
 	"github.com/containerd/containerd/mount"
 	"github.com/containerd/containerd/oci"
 	"github.com/containerd/continuity/fs"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/proto"
 	"github.com/hashicorp/go-multierror"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )

@@ -22,10 +22,10 @@ import (
 	"github.com/containerd/containerd/snapshots"
 	"github.com/sirupsen/logrus"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/cache"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/proxy"
-	mountutil "github.com/firecracker-microvm/firecracker-containerd/snapshotter/internal/mount"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/cache"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/proxy"
+	mountutil "github.com/vistara-labs/firecracker-containerd/snapshotter/internal/mount"
 )
 
 // Snapshotter routes snapshotter requests to their destined

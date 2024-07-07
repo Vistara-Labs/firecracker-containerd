@@ -55,16 +55,16 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/firecracker-microvm/firecracker-containerd/config"
-	"github.com/firecracker-microvm/firecracker-containerd/eventbridge"
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/bundle"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	drivemount "github.com/firecracker-microvm/firecracker-containerd/proto/service/drivemount/ttrpc"
-	fccontrolTtrpc "github.com/firecracker-microvm/firecracker-containerd/proto/service/fccontrol/ttrpc"
-	ioproxy "github.com/firecracker-microvm/firecracker-containerd/proto/service/ioproxy/ttrpc"
-	"github.com/firecracker-microvm/firecracker-containerd/utils"
+	"github.com/vistara-labs/firecracker-containerd/config"
+	"github.com/vistara-labs/firecracker-containerd/eventbridge"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal/bundle"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	drivemount "github.com/vistara-labs/firecracker-containerd/proto/service/drivemount/ttrpc"
+	fccontrolTtrpc "github.com/vistara-labs/firecracker-containerd/proto/service/fccontrol/ttrpc"
+	ioproxy "github.com/vistara-labs/firecracker-containerd/proto/service/ioproxy/ttrpc"
+	"github.com/vistara-labs/firecracker-containerd/utils"
 )
 
 func init() {

@@ -19,8 +19,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/app"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/config"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/app"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/config"
 )
 
 func main() {

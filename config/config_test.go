@@ -18,7 +18,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal"
 	"github.com/stretchr/testify/assert"
 )
 

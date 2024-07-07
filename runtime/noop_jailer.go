@@ -22,8 +22,8 @@ import (
 	"github.com/firecracker-microvm/firecracker-go-sdk"
 	"github.com/sirupsen/logrus"
 
-	"github.com/firecracker-microvm/firecracker-containerd/config"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/config"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
 )
 
 // noopJailer is a jailer that returns only successful responses and performs

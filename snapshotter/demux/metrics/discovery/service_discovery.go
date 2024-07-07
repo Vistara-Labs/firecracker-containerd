@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/containerd/containerd/log"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/cache"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/cache"
 )
 
 // ServiceDiscovery discovers metrics services in the snapshotter cache

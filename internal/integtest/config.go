@@ -17,7 +17,7 @@ import (
 	"encoding/json"
 	"os"
 
-	"github.com/firecracker-microvm/firecracker-containerd/config"
+	"github.com/vistara-labs/firecracker-containerd/config"
 )
 
 const runtimeConfigPath = "/etc/containerd/firecracker-runtime.json"

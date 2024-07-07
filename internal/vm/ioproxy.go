@@ -21,7 +21,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal"
 	"github.com/hashicorp/go-multierror"
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sync/errgroup"

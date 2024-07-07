@@ -20,7 +20,7 @@ import (
 	"time"
 
 	"github.com/containerd/containerd/snapshots"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/proxy"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/proxy"
 	"github.com/hashicorp/go-multierror"
 	log "github.com/sirupsen/logrus"
 )

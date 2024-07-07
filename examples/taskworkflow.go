@@ -29,9 +29,9 @@ import (
 	"github.com/containerd/containerd/namespaces"
 	"github.com/containerd/containerd/oci"
 
-	fcclient "github.com/firecracker-microvm/firecracker-containerd/firecracker-control/client"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	"github.com/firecracker-microvm/firecracker-containerd/runtime/firecrackeroci"
+	fcclient "github.com/vistara-labs/firecracker-containerd/firecracker-control/client"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/runtime/firecrackeroci"
 )
 
 const (

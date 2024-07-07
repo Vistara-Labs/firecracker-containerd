@@ -17,7 +17,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/proxy"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/proxy"
 )
 
 // EvictionPolicy defines the interface for enforcing a cache eviction policy.

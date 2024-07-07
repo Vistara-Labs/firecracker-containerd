@@ -17,8 +17,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/integtest"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal/integtest"
 )
 
 func init() {

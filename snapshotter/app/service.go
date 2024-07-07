@@ -31,13 +31,13 @@ import (
 	"golang.org/x/sync/errgroup"
 	"google.golang.org/grpc"
 
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/config"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/cache"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/metrics"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/metrics/discovery"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/proxy"
-	proxyaddress "github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/proxy/address"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/config"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/cache"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/metrics"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/metrics/discovery"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/proxy"
+	proxyaddress "github.com/vistara-labs/firecracker-containerd/snapshotter/demux/proxy/address"
 )
 
 // Run the demultiplexing snapshotter service.

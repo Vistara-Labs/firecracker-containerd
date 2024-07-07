@@ -20,7 +20,7 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/proto"
 
 	"github.com/firecracker-microvm/firecracker-go-sdk"
 	models "github.com/firecracker-microvm/firecracker-go-sdk/client/models"
@@ -28,8 +28,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/firecracker-microvm/firecracker-containerd/config"
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/config"
+	"github.com/vistara-labs/firecracker-containerd/internal"
 )
 
 func TestBuildJailedRootHandler(t *testing.T) {

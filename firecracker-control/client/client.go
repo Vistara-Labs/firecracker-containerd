@@ -18,7 +18,7 @@ import (
 
 	"github.com/containerd/containerd/pkg/ttrpcutil"
 
-	fccontrol "github.com/firecracker-microvm/firecracker-containerd/proto/service/fccontrol/ttrpc"
+	fccontrol "github.com/vistara-labs/firecracker-containerd/proto/service/fccontrol/ttrpc"
 )
 
 // Client is a helper client for containerd's firecracker-control plugin

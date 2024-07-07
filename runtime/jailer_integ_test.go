@@ -27,12 +27,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	_ "github.com/firecracker-microvm/firecracker-containerd/firecracker-control"
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/integtest"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	"github.com/firecracker-microvm/firecracker-containerd/runtime/cpuset"
-	"github.com/firecracker-microvm/firecracker-containerd/runtime/firecrackeroci"
+	_ "github.com/vistara-labs/firecracker-containerd/firecracker-control"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal/integtest"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/runtime/cpuset"
+	"github.com/vistara-labs/firecracker-containerd/runtime/firecrackeroci"
 )
 
 const (

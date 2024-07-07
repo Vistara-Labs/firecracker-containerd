@@ -1,4 +1,4 @@
-module github.com/firecracker-microvm/firecracker-containerd
+module github.com/vistara-labs/firecracker-containerd
 
 go 1.21
 

@@ -67,7 +67,7 @@ import (
 	_ "github.com/containerd/containerd/pkg/cri"
 
 	// Register fc-control plugin
-	_ "github.com/firecracker-microvm/firecracker-containerd/firecracker-control"
+	_ "github.com/vistara-labs/firecracker-containerd/firecracker-control"
 )
 
 func init() {

@@ -24,8 +24,8 @@ import (
 	"github.com/containerd/containerd/log"
 	"github.com/containerd/containerd/mount"
 	"github.com/containerd/containerd/protobuf/types"
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	drivemount "github.com/firecracker-microvm/firecracker-containerd/proto/service/drivemount/ttrpc"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	drivemount "github.com/vistara-labs/firecracker-containerd/proto/service/drivemount/ttrpc"
 )
 
 const (

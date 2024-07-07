@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/proxy"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/internal"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/proxy"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/goleak"
 )

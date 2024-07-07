@@ -7,7 +7,7 @@
 package fccontrol
 
 import (
-	proto "github.com/firecracker-microvm/firecracker-containerd/proto"
+	proto "github.com/vistara-labs/firecracker-containerd/proto"
 	empty "github.com/golang/protobuf/ptypes/empty"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"

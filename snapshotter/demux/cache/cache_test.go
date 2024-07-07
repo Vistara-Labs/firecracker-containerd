@@ -22,8 +22,8 @@ import (
 	"github.com/containerd/containerd/snapshots"
 	"github.com/hashicorp/go-multierror"
 
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/proxy"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/internal"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/demux/proxy"
 )
 
 func getSnapshotterOkFunction(ctx context.Context, key string) (*proxy.RemoteSnapshotter, error) {

@@ -16,8 +16,8 @@ package integtest
 import (
 	"testing"
 
-	"github.com/firecracker-microvm/firecracker-containerd/config"
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/config"
+	"github.com/vistara-labs/firecracker-containerd/internal"
 )
 
 // Prepare is a common integration test setup function which ensures

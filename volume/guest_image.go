@@ -27,7 +27,7 @@ import (
 	"github.com/containerd/containerd/containers"
 	"github.com/containerd/containerd/identifiers"
 	"github.com/containerd/containerd/oci"
-	"github.com/firecracker-microvm/firecracker-containerd/runtime/firecrackeroci"
+	"github.com/vistara-labs/firecracker-containerd/runtime/firecrackeroci"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )
 

@@ -13,7 +13,7 @@
 
 package integtest
 
-import "github.com/firecracker-microvm/firecracker-containerd/firecracker-control/client"
+import "github.com/vistara-labs/firecracker-containerd/firecracker-control/client"
 
 // NewFCControlClient returns a Firecracker control client for the given socket.
 func NewFCControlClient(socket string) (*client.Client, error) {

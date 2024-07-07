@@ -34,9 +34,9 @@ import (
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal/bundle"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/internal/bundle"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/proto"
 )
 
 // TaskService represents inner shim wrapper over runc in order to:

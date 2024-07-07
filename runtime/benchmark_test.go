@@ -20,9 +20,9 @@ import (
 
 	"github.com/containerd/containerd"
 	"github.com/containerd/containerd/namespaces"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/integtest"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	fccontrol "github.com/firecracker-microvm/firecracker-containerd/proto/service/fccontrol/ttrpc"
+	"github.com/vistara-labs/firecracker-containerd/internal/integtest"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	fccontrol "github.com/vistara-labs/firecracker-containerd/proto/service/fccontrol/ttrpc"
 	"github.com/gofrs/uuid"
 	"github.com/stretchr/testify/require"
 )

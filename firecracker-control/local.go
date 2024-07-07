@@ -36,13 +36,13 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/firecracker-microvm/firecracker-containerd/config"
-	fcclient "github.com/firecracker-microvm/firecracker-containerd/firecracker-control/client"
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	fcShim "github.com/firecracker-microvm/firecracker-containerd/internal/shim"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	fccontrolTtrpc "github.com/firecracker-microvm/firecracker-containerd/proto/service/fccontrol/ttrpc"
+	"github.com/vistara-labs/firecracker-containerd/config"
+	fcclient "github.com/vistara-labs/firecracker-containerd/firecracker-control/client"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	fcShim "github.com/vistara-labs/firecracker-containerd/internal/shim"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	fccontrolTtrpc "github.com/vistara-labs/firecracker-containerd/proto/service/fccontrol/ttrpc"
 )
 
 var (

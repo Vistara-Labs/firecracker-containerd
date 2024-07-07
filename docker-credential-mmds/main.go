@@ -17,7 +17,7 @@ import (
 	"os"
 
 	"github.com/docker/docker-credential-helpers/credentials"
-	"github.com/firecracker-microvm/firecracker-containerd/docker-credential-mmds/mmds"
+	"github.com/vistara-labs/firecracker-containerd/docker-credential-mmds/mmds"
 )
 
 func main() {

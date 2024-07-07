@@ -33,11 +33,11 @@ import (
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/sys/unix"
 
-	"github.com/firecracker-microvm/firecracker-containerd/eventbridge"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/event"
+	"github.com/vistara-labs/firecracker-containerd/eventbridge"
+	"github.com/vistara-labs/firecracker-containerd/internal/event"
 
-	drivemount "github.com/firecracker-microvm/firecracker-containerd/proto/service/drivemount/ttrpc"
-	ioproxy "github.com/firecracker-microvm/firecracker-containerd/proto/service/ioproxy/ttrpc"
+	drivemount "github.com/vistara-labs/firecracker-containerd/proto/service/drivemount/ttrpc"
+	ioproxy "github.com/vistara-labs/firecracker-containerd/proto/service/ioproxy/ttrpc"
 )
 
 const (

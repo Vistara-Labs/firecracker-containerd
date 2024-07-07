@@ -15,7 +15,7 @@ package vm
 
 import (
 	"github.com/containerd/containerd/mount"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/vm"
+	"github.com/vistara-labs/firecracker-containerd/internal/vm"
 )
 
 // AddLocalMountIdentifier adds an identifier to a mount so that it can be detected by IsLocalMount.

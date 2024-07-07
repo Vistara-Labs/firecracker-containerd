@@ -20,7 +20,7 @@ import (
 	"os"
 
 	"github.com/containerd/continuity/fs"
-	"github.com/firecracker-microvm/firecracker-containerd/volume"
+	"github.com/vistara-labs/firecracker-containerd/volume"
 )
 
 func copy(in volume.GuestVolumeImageInput) error {

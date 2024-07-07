@@ -14,8 +14,8 @@
 package integtest
 
 import (
-	"github.com/firecracker-microvm/firecracker-containerd/config"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/config"
+	"github.com/vistara-labs/firecracker-containerd/proto"
 )
 
 // WithDefaultNetwork is an option to use the default network configuration

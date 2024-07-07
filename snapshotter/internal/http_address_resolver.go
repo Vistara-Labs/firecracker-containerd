@@ -29,9 +29,9 @@ import (
 	"github.com/sirupsen/logrus"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/firecracker-microvm/firecracker-containerd/firecracker-control/client"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
-	proxyaddress "github.com/firecracker-microvm/firecracker-containerd/snapshotter/demux/proxy/address"
+	"github.com/vistara-labs/firecracker-containerd/firecracker-control/client"
+	"github.com/vistara-labs/firecracker-containerd/proto"
+	proxyaddress "github.com/vistara-labs/firecracker-containerd/snapshotter/demux/proxy/address"
 )
 
 var (

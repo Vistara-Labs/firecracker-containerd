@@ -41,7 +41,7 @@ import (
 
 	"github.com/containerd/containerd/images"
 	"github.com/containerd/containerd/labels"
-	"github.com/firecracker-microvm/firecracker-containerd/snapshotter/internal/integtest/stargz/fs/config"
+	"github.com/vistara-labs/firecracker-containerd/snapshotter/internal/integtest/stargz/fs/config"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 )
 

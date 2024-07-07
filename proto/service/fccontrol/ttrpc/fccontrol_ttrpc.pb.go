@@ -5,7 +5,7 @@ package fccontrol
 import (
 	context "context"
 	ttrpc "github.com/containerd/ttrpc"
-	proto "github.com/firecracker-microvm/firecracker-containerd/proto"
+	proto "github.com/vistara-labs/firecracker-containerd/proto"
 	empty "github.com/golang/protobuf/ptypes/empty"
 )
 

@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/firecracker-microvm/firecracker-containerd/internal"
-	"github.com/firecracker-microvm/firecracker-containerd/internal/debug"
-	"github.com/firecracker-microvm/firecracker-containerd/proto"
+	"github.com/vistara-labs/firecracker-containerd/internal"
+	"github.com/vistara-labs/firecracker-containerd/internal/debug"
+	"github.com/vistara-labs/firecracker-containerd/proto"
 	models "github.com/firecracker-microvm/firecracker-go-sdk/client/models"
 )
 

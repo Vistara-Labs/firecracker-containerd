@@ -13,7 +13,7 @@
 
 package client
 
-import "github.com/firecracker-microvm/firecracker-containerd/internal/bundle"
+import "github.com/vistara-labs/firecracker-containerd/internal/bundle"
 
 // RootFSPathInVM returns the path to the rootfs of the container inside a microVM.
 func RootFSPathInVM(taskID string) string {
