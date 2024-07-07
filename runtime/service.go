@@ -64,6 +64,7 @@ import (
 	drivemount "github.com/firecracker-microvm/firecracker-containerd/proto/service/drivemount/ttrpc"
 	fccontrolTtrpc "github.com/firecracker-microvm/firecracker-containerd/proto/service/fccontrol/ttrpc"
 	ioproxy "github.com/firecracker-microvm/firecracker-containerd/proto/service/ioproxy/ttrpc"
+	"github.com/firecracker-microvm/firecracker-containerd/utils"
 )
 
 func init() {
@@ -1065,43 +1066,12 @@ func (s *service) buildRootDrive(req *proto.CreateVMRequest) []models.Drive {
 }
 
 func (s *service) newIOProxy(logger *logrus.Entry, stdin, stdout, stderr string, extraData *proto.ExtraData) (vm.IOProxy, error) {
-	var ioConnectorSet vm.IOProxy
-
 	relVSockPath, err := s.jailer.JailPath().FirecrackerVSockRelPath()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get relative path to firecracker vsock: %w", err)
 	}
 
-	if vm.IsAgentOnlyIO(stdout, logger) {
-		ioConnectorSet = vm.NewNullIOProxy()
-	} else {
-		var stdinConnectorPair *vm.IOConnectorPair
-		if stdin != "" {
-			stdinConnectorPair = &vm.IOConnectorPair{
-				ReadConnector:  vm.ReadFIFOConnector(stdin),
-				WriteConnector: vm.VSockDialConnector(defaultVSockConnectTimeout, relVSockPath, extraData.StdinPort),
-			}
-		}
-
-		var stdoutConnectorPair *vm.IOConnectorPair
-		if stdout != "" {
-			stdoutConnectorPair = &vm.IOConnectorPair{
-				ReadConnector:  vm.VSockDialConnector(defaultVSockConnectTimeout, relVSockPath, extraData.StdoutPort),
-				WriteConnector: vm.WriteFIFOConnector(stdout),
-			}
-		}
-
-		var stderrConnectorPair *vm.IOConnectorPair
-		if stderr != "" {
-			stderrConnectorPair = &vm.IOConnectorPair{
-				ReadConnector:  vm.VSockDialConnector(defaultVSockConnectTimeout, relVSockPath, extraData.StderrPort),
-				WriteConnector: vm.WriteFIFOConnector(stderr),
-			}
-		}
-
-		ioConnectorSet = vm.NewIOConnectorProxy(stdinConnectorPair, stdoutConnectorPair, stderrConnectorPair)
-	}
-	return ioConnectorSet, nil
+	return utils.NewIOProxy(logger, stdin, stdout, stderr, relVSockPath, extraData)
 }
 
 func (s *service) addFIFOs(taskID, execID string, config cio.Config) error {
