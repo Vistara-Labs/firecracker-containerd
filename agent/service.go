@@ -231,17 +231,6 @@ func (ts *TaskService) Create(requestCtx context.Context, req *taskAPI.CreateTas
 		return nil, fmt.Errorf("failed to write OCI config file: %w", err)
 	}
 
-	// Override the incoming stdio FIFOs, which have paths from the host that we can't use
-	fifoSet, err := cio.NewFIFOSetInDir(bundleDir.RootPath(), taskExecID, req.Terminal)
-	if err != nil {
-		err = fmt.Errorf("failed to open stdio FIFOs: %w", err)
-		logger.WithError(err).Error()
-		return nil, err
-	}
-	ts.addCleanup(taskExecID, func() error {
-		return fifoSet.Close()
-	})
-
 	var ioConnectorSet vm.IOProxy
 
 	if vm.IsAgentOnlyIO(req.Stdout, logger) {
